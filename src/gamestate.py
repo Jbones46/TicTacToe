@@ -1,6 +1,3 @@
-import numpy as np
-
-
 class Gamestate:
 
     def __init__(self):
