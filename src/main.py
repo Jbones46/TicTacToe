@@ -13,19 +13,17 @@ def drawXY(screen, player):
     y = int(pos[1] /120)
     x_pixel = x * 160 + 35
     y_pixel = y * 120 + 15
-
     # Debug print statement
-    print('x = ' + str(x) + ', y = ' + str(y))
-
+    # print('x = ' + str(x) + ', y = ' + str(y))
     if game_state.check_and_update_board(x, y) == True:
         screen.blit(player, (x_pixel, y_pixel))
         pygame.display.flip()
-        print(game_state.board)
-
         if game_state.check_win_condition(x, y) == True:
             # do stuff to indicate who won!
             print('TODO: add victory logic here')
-
+        print()
+        game_state.print_game_board()
+        print('\nkey: ' + str(game_state.key))
 
 # define a main function
 def main():
