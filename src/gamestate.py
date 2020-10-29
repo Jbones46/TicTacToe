@@ -15,14 +15,9 @@ class Gamestate:
         self.tiny_shark = [self.d1, self.d2, self.h1, self.h2, self.h3, self.v1, self.v2, self.v3]
 
     def check_win_condition(self, x, y):
-        update = -1
-
-        if self.player_Xs_turn == True:
-            update = 1
-
         for i in range(7):
             if self.tiny_shark[i][x][y] == 1:
-                self.key[i] = self.key[i] + update
+                self.key[i] = self.key[i] + self.board[x][y]
                 if self.key[i] > 2:
                     return True
 
