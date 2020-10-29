@@ -10,29 +10,24 @@ def drawXY(screen, player):
     y = int(pos[1] /120)
     x_pixel = x * 160 + 35
     y_pixel = y * 120 + 15
-
     # Debug print statement
     # print('x = ' + str(x) + ', y = ' + str(y))
     if game_state.check_and_update_board(x, y) == True:
-        screen.blit(player, (x_pixel, y_pixel))
-        pygame.display.flip()
         if game_state.check_win_condition(x, y) == True:
-            # Tk().wm_withdraw() #to hide the main window
             if game_state.player_Xs_turn == True:
                 screen.fill((255, 255, 255))
                 screen.blit(win, (20, 20))
                 screen.blit(message, (40, 60))
                 pygame.display.flip()
-
-                # messagebox.showinfo('Play Again','Player X wins!')
             else:
                 screen.fill((255, 255, 255))
                 screen.blit(lose, (20, 20))
                 screen.blit(message, (40, 60))
                 pygame.display.flip()
-                # messagebox.showinfo('Play Again','Player O wins!')
-
             game_state.reset_game = True
+        else:
+            screen.blit(player, (x_pixel, y_pixel))
+            pygame.display.flip()
         print()
         game_state.print_game_board()
         print('\nkey: ' + str(game_state.key))
@@ -60,7 +55,6 @@ def main():
                 screen.blit(bgd_image, (0, 0))
                 pygame.display.flip()
                 game_state.reset()
-
             if event.type == pygame.QUIT:
                 # change the value to False, to exit the main loop
                 running = False

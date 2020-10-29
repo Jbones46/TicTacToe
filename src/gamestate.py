@@ -5,7 +5,7 @@ class Gamestate:
         self.player_Xs_turn = True
         self.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         self.key = [0, 0, 0, 0, 0, 0, 0, 0]
-        self.reset_game = True
+        self.reset_game = False
 
         # these are the 8 possible victory configurations
         self.d1 = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
